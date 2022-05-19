@@ -1,0 +1,38 @@
+Git hub
+branch : para crear una rama 
+Init : para iniciar git
+show : para ver los cambios realizados en el block
+log: para ver los logs creados por el cambio que se realiza en el block
+status: para ver si hay algo que actulizar y tambien para ver en en rama te encuentras
+add : para agregar 
+checkout: para cambiar de rama o para realizar los cambios a las ediciones que se realiza
+rm : para borrar el block del disco mas no de los logs
+merge : para unir las ramas que se han creado
+fetch: traer cosa
+push: enviar cosas o actualizaciones al git hub
+pull : actulizar del github al archivo.txt o al html
+rebase : para unir la rama que creda a las misma rama de master y despues de realizar merge se borro la rama creada
+stash :
+stash pop :
+clean --dry-run: para ver lo que puede borrar
+clean -f: para borrar lo seleccionado
+cherry-pick : traer los comandos de un rama antigua (comandos que solo necesita el master)
+branch -d: para borrar una rama
+reset: para poder resetear lo malo que se realizo sin darme cuenta o por un error
+reflog: para ver los commits que realizo y poder regresar a ese punto 
+commit --amend: para poder pegar al commit anterior realizado
+para los codigos
+grep: para buscar la palabra en el codigo
+grep -n: para ver espedificamente en que linea se encuentra
+grep -c: para ver cuantas veces se usaron esa palabra
+para los commits
+log -s : para buscar las palabras usadas en commits
+blame: para poder ver quien realizo la ediciones en los comandos
+shortlog: para poder ver los usuarios que crearon los commits
+
+$ eval $(ssh-agent -s) para ver si el servidor ssh esta corriendo
+
+ssh-add ~/.ssh/id_rsa para agregar la contraseña publica ssh
+
+
+
