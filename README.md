@@ -15,3 +15,5 @@ Mi blog que sera en homanege a los animes que me gustan.
 * Kaneki
 * Eren
 * Natsu
+## La trasformacion mas epica
+* Gohan vs Cell
