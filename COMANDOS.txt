@@ -1,0 +1,16 @@
+cp: para hacer copias de arichivos o directorios
+mv: para poder mover archivos y directorios, tambien se puede renombrar con este comando
+rm: para borrar 
+-r para borrar los directorios
+-ri para poder borrar archivo por archivo
+head: para ver la cabezera de nuestros comandos (las primeros 10 lineas)
+tail: para ver las ultimas lineas del comando (las ultimas 10 lineas)
+less: nos abre todo el archivo texto y podemos interactuar con ello, tambien si le colocamos el /
+podemos buscar palabras espesificas.
+xdg-open: para poder abrir el archivo en el editor de texto predeterminado
+Nautilus: nos permite abrir la ubicacion del archivo con el interface
+type: para ver como estan formado los alias
+alias: para poder crear alias a los comandos
+man: para ver manuales de los comandos
+whatis: para poder ver lo que hace el comando
+

@@ -1,4 +1,5 @@
 Git hub
+diff : para comparar entre dos log (commit)
 branch : para crear una rama 
 Init : para iniciar git
 show : para ver los cambios realizados en el block
@@ -12,8 +13,8 @@ fetch: traer cosa
 push: enviar cosas o actualizaciones al git hub
 pull : actulizar del github al archivo.txt o al html
 rebase : para unir la rama que creda a las misma rama de master y despues de realizar merge se borro la rama creada
-stash :
-stash pop :
+stash : El comando git stash guarda el trabajo actual del Staging en una lista diseñada para ser temporal llamada Stash, para que pueda ser recuperado en el futuro.
+stash pop :Para recuperar los últimos cambios desde el stash a tu staging area utiliza el comando:
 clean --dry-run: para ver lo que puede borrar
 clean -f: para borrar lo seleccionado
 cherry-pick : traer los comandos de un rama antigua (comandos que solo necesita el master)
@@ -29,6 +30,40 @@ para los commits
 log -s : para buscar las palabras usadas en commits
 blame: para poder ver quien realizo la ediciones en los comandos
 shortlog: para poder ver los usuarios que crearon los commits
+
+historia real de como avanza el archivo
+crea la historia
+
+la rama HEAD representan la rama y el commit de esa rama donde estamos trabajando.Por defecto, esta cabecera aparecerá en el último commit de nuestra rama principal
+
+Conflicto entre dos archivos
+Esto lo conocemos como conflicto y lo podemos resolver manualmente. 
+Solo debemos hacer el merge, ir a nuestro editor de código y elegir si queremos quedarnos con alguna de estas dos versiones o algo diferente. 
+Algunos editores de código como Visual Studio Code nos ayudan a resolver estos conflictos sin necesidad de borrar o escribir líneas de texto, 
+basta con hacer clic en un botón y guardar el archivo.
+Recuerda que siempre debemos crear un nuevo commit para aplicar los cambios del merge. 
+Si Git puede resolver el conflicto, hará commit automáticamente. Pero, en caso de no pueda resolverlo, debemos solucionarlo y hacer el commit.
+
+GitHub es una plataforma que nos permite guardar repositorios de Git que podemos usar como servidores remotos y ejecutar algunos comandos de 
+forma visual e interactiva (sin necesidad de la consola de comandos).
+Luego de crear nuestra cuenta, podemos crear o importar repositorios, crear organizaciones y proyectos de trabajo, descubrir repositorios de 
+otras personas, contribuir a esos proyectos, dar estrellas y muchas otras cosas.
+
+En un repositorio público en GitHub, ¿qué puede hacer los colaboradores?
+Por defecto, cualquier persona puede clonar o descargar tu proyecto desde GitHub, pero no pueden crear commits, ni ramas.
+
+Los PR (pull requests) son la base de la colaboración a proyectos Open Source, si tienen pensando colaborar en alguno es muy importante 
+entender esto y ver cómo se hace en las próximas clases. Por lo general es forkear el proyecto, implementar el cambio en una nueva rama, hacer el PR y esperar 
+que los administradores del proyecto hagan el merge o pidan algún cambio en el código o commits que hiciste.
+
+Los forks o bifurcaciones son una característica única de GitHub en la que se crea una copia exacta del estado actual de un repositorio directamente en GitHub. 
+Este repositorio podrá servir como otro origen y se podrá clonar (como cualquier otro repositorio). 
+En pocas palabras, lo podremos utilizar como un nuevo repositorio git cualquiera
+
+Remendar un commit con amend puede modificar el commit más reciente (enmendar) en la misma rama.
+
+El stashed nos sirve para guardar cambios para después, Es una lista de estados que nos guarda algunos cambios que hicimos en 
+Staging para poder cambiar de rama sin perder el trabajo que todavía no guardamos en un commit
 
 $ eval $(ssh-agent -s) para ver si el servidor ssh esta corriendo
 
