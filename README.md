@@ -8,3 +8,10 @@ Mi blog que sera en homanege a los animes que me gustan.
 * Dragon Ball Z
 * Bleach
 * Full Metal Alchemist Brotherhood
+## Los personajes que me Gustan
+* Luffy
+* Goku
+* Ichigo
+* Kaneki
+* Eren
+* Natsu
