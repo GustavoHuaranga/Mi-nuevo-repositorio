@@ -13,4 +13,48 @@ type: para ver como estan formado los alias
 alias: para poder crear alias a los comandos
 man: para ver manuales de los comandos
 whatis: para poder ver lo que hace el comando
+wildcards: nos sirven para realizar seccionamiento de archivos o directorios, ademas de ls los wildcards 
+tambien pueden usarse con cualquier comando que realize la manipulacion de archivos como mv, cp y rm. 
+En este ejemplo yo movi todos los archivo .py hacia una carpeta.
+
+
+La shell o línea de comandos es:
+es un programa que se puede ejecutar desde el terminal
+
+¿Con cuál comando copiamos un directorio y su contenido? (Esto hace parte de uno de los retos que te dejé)
+
+¿Qué operador nos ayuda a concatenar la salida de un comando a un archivo de texto?
+>>
+
+El pipe operator redirecciona la salida de un comando a la entrada de otro comando, esto es:
+
+verdadero
+
+Si deseamos condicionar la ejecución de un comando solo si uno anterior se ejecuto de manera exitosa podemos usar:
+
+&&
+
+Es un comando que nos ayuda a buscar la ruta de binarios o ejecutables en nuestro sistema.
+
+which
+
+Para buscar todas las imágenes png dentro de nuestra computadora podemos ejecutar:
+
+
+
+¿Qué comando nos ayuda consultar la disponibilidad de un equipo en una red?
+
+
+netstat
+
+
+para poder realizar instalacion 
+
+ingreso al root 
+$su
+#nano /etc/sudoers
+
+
+
+
 
