@@ -1,0 +1,73 @@
+para realizar la reconfiguracion
+
+$sudo dpkg-reconfigure locales
+
+para el teclado
+
+sudo dpkg-reconfigure keyboard-configuration
+
+para apagar 
+
+shutdown -h now
+
+para poder leer la informacion de un directorio
+
+cat: para leer
+
+head: para poder leer las primeras lineas
+
+tail: para poder leer las ultimas lineas
+
+less: para poder leer y buscar un palabra en espesifica 
+
+permisos
+ls -l
+cuando inicia con (d) quiere decir que es un directorio
+cuando inicia con (-) quiere decir que es un archivo
+
+usuario grupo otrosusuario
+rwx     rwx   rwx
+
+para cambiar los permisos (chmod)
+para cambiar de usuario (chown)
+
+Terminales
+
+para ver en que terminal estas (tty)
+
+existen 7 terminales de tty pero solo puedes usar 6 porque la 7 esta destinado para el garfico
+
+(w o who) para ver en que terminales esta abierto
+
+(kill) para matar terminales 
+
+(ps -tf tty1-6) para ver los terminales activos y tambien muestro los procesos (aux) nos muestra todos los procesos
+
+(fg)  para recuperar el archivo en stop
+
+(jobs) para ver los trabajos en stop
+
+(nohup) Genera un archivo llamado “nohup.out” que muestra toda la información que produjo un proceso
+
+(grep) Nos ayuda a filtrar el resultado de un comando o el contenido de un archivo dependiendo de las palabras 
+(o incluso expresión regular) que le indiquemos
+
+(|) Pipe: Envia el standard output de un comando al standard input de otro.
+(&) Ampersand: Envia un proceso al background
+(./) Ejecuta un archivo
+
+Monitoreo de recursos del sistema
+
+(free -h) para ver la cantidad de memoria ram y cuanto esta consumiendo
+
+(du -h) para ver la cantidad de disco duro y el consumo 
+
+(sudo ps aux | sort -nr -k 3 | head -5) para ver el consumo de cpu
+
+(sudo ps aux | sort -nr -k 4 | head -5) para ver el consumo de ram
+
+(sort) organiza por tamaño 
+
+
+
+ 

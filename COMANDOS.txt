@@ -48,7 +48,7 @@ Para buscar todas las imágenes png dentro de nuestra computadora podemos ejecut
 netstat
 
 
-para poder realizar instalacion 
+para poder realizar instalacion con el usuario estandar
 
 ingreso al root 
 $su
