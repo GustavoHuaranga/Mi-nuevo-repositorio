@@ -68,6 +68,66 @@ Monitoreo de recursos del sistema
 
 (sort) organiza por tamaño 
 
+Análisis de los parámetros de red
 
+(ifconfig) Interface Configuration, muestra las tarjetas de red que tenemos y su direccionamiento específico
+(ip a) IP Address Show, muestra las direcciones IP
+(hostname) Como se identifica este equipo en la red
+(route -n) Muestra cual es el dispositivo que me permite conectarme a internet
+(nslookup) Muestra la dirección IP de un dominio determinado
+(curl) Realiza consultas a un servidor
+(wget) Permite descargar contenido de un servidor
 
+Manejo de paquetes en sistemas basados en Debian
+
+sudo apt update: Actualiza la información local sobre los repositorios de Ubuntu
+sudo apt upgrade: Actualiza todos los programas que tenemos instalados en la máquina
+sudo snap install paquete: Instala un paquete con el nuevo gestor de paquetes de Canonical, snap
+date: Imprime la fecha actual
+
+Los usuarios, una tarea vital en el proceso de administración del sistema operativo
+
+id: Muestra el identificador único de mi usuario, del grupo al que pertenezco y los grupos de los cuales formo parte
+whoami: Muestra que usuario soy
+passwd: Cambia la contraseña del usuario actual
+
+cat /etc/passwd: Muestra todos los usuarios del sistema operativo
+cat /etc/shadow: Muestra las contraseñas del sistema operativo
+
+Creando y manejando cuentas de usuario en el sistema operativo
+
+sudo useradd nombre-usuario: crea un usuario sin asignarle inmediatamente alguna contraseña ni consultar más información. Debemos terminar de configurar esta cuenta a mano posteriormente.
+sudo adduser nombre-usuario: crea un nuevo usuario con contraseña y algo más de información. También creará una nueva carpeta en la carpeta /home/.
+userdel nombre-usuario: eliminar cuentas de usuarios.
+usermod: modificar la información de alguna cuenta.
+Nunca modifiques a mano el archivo /etc/passwd. Para administrar los usuarios debemos usar los comandos que estudiamos en clase.
+
+Administracion de Usuario asignacion de grupos
+
+su - usuario: Switch User, cambia de usuario
+groups usuario: Muestra a que grupos pertenece cierto usuario
+sudo gpasswd -a usuario grupo: Agrega un usuario a un grupo
+sudo gpasswd -d usuario grupo: Quita a un usuario de un grupo
+usermod -aG grupo usuario: Agrega un usuario a un grupo
+sudo -l: Muestra que permisos tiene el usuario actual
  
+
+      Categorías de DNS
+
+         GOV = Gobierno, cualquier dominio relacionado con el gobierno que cumpla con los
+                 Requisitos de segundo nivel.
+
+         EDU = Educación, cualquier dominio relacionado con la educación que cumpla con los
+                 Requisitos de segundo nivel.
+
+         COM = Comercial, cualquier dominio comercial relacionado que cumpla con los
+                 Requisitos de segundo nivel.
+
+         MIL = Militar, cualquier dominio relacionado con el ejército que cumpla con los
+                 Requisitos de segundo nivel.
+
+         ORG = Organización, cualquier otro dominio que cumpla con el segundo
+                 requisitos de nivel.
+
+
+

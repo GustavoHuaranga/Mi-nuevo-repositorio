@@ -54,6 +54,8 @@ ingreso al root
 $su
 #nano /etc/sudoers
 
+sudo mv /etc/apache2/mods-enabled/fastcgi.conf /etc/apache2/mods-enabled/fastcgi.conf.default
+
 
 
 
