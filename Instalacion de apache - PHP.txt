@@ -1,0 +1,77 @@
+Paso 1: instalación de Apache y PHP-FPM
+Primero, actualice su lista de paquetes para asegurarse de tener los paquetes más recientes.
+sudo apt update
+A continuación, instale los paquetes de Apache y PHP-FPM:
+sudo apt install apache2 php-fpm
+El módulo FastCGI Apache no está disponible en el repositorio de Ubuntu, por lo que debe descargarlo desde kernel.org e instalarlo usando el comando dpkg.
+wget https://mirrors.edge.kernel.org/ubuntu/pool/multiverse/liba/libapache-mod-fastcgi/libapache2-mod-fastcgi_2.4.7~0910052141-1.2_amd64.deb
+sudo dpkg -i libapache2-mod-fastcgi_2.4.7~0910052141-1.2_amd64.deb
+Luego, cambiemos la configuración predeterminada de Apache para usar PHP-FPM.
+
+Paso 2: configuración de Apache y PHP-FPM
+En este paso, cambiaremos el número de puerto de Apache a 8080 y lo configuraremos para que funcione con PHP-FPM usando el módulo mod_fastcgi. Renombre al archivo de configuración ports.conf de Apache:
+sudo mv /etc/apache2/ports.conf /etc/apache2/ports.conf.default
+Cree un archivo ports.conf nuevo con el puerto establecido en 8080:
+echo "Listen 8080" | sudo tee /etc/apache2/ports.conf
+Nota: en general, los servidores web se establecen para escuchar en 127.0.0.1:8080 al configurar un proxy inverso, pero al hacerlo, el valor de la variable de entorno SERVER_ADDR de PHP se establece en la dirección IP de bucle invertido en lugar de establecerse en la IP pública del servidor. Nuestro objetivo es configurar Apache de manera tal que sus sitios web no visualicen un proxy inverso delante suyo. Por lo tanto, lo configuraremos para escuchar en 8080 todas las direcciones IP.
+A continuación, crearemos un archivo de host virtual para Apache. La <VirtualHost> directiva en este archivo se establecerá para servir sitios únicamente en el puerto 8080.
+
+Desactive el host virtual predeterminado:
+sudo a2dissite 000-default
+A continuación, cree un nuevo archivo de host virtual usando el sitio predeterminado existente:
+sudo cp /etc/apache2/sites-available/000-default.conf /etc/apache2/sites-available/001-default.conf
+Ahora, abra el nuevo archivo de configuración:
+sudo nano /etc/apache2/sites-available/001-default.conf
+Cambie el puerto de escucha a 8080:
+<VirtualHost *:8080>
+    ServerAdmin webmaster@localhost
+    DocumentRoot /var/www/html
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+Guarde el archivo y active el nuevo archivo de configuración:
+sudo a2ensite 001-default
+Luego, vuelva a cargar Apache:
+sudo systemctl reload apache2
+Verifique que, ahora, Apache escuche en 8080:
+sudo netstat -tlpn
+El resultado debería verse como el siguiente ejemplo, con apache2 escuchando en 8080:
+Una vez verifique que Apache está escuchando en el puerto correcto, puede configurar la compatibilidad con PHP y FastCGI.
+Paso 3: configuración de Apache para usar mod_fastcgi
+Apache sirve páginas de PHP usando mod_php por defecto, pero requiere de configuración adicional para funcionar con PHP-FPM.
+
+Nota: si está probando este tutorial en una instalación de LAMP con mod_php, primero, desactívela con sudo a2dismod php7.2.
+Vamos a añadir un bloque de configuración para mod_fastcgi que depende de mod_action. mod_action está desactivado por defecto, por lo que, primero, debemos habilitarlo:
+sudo a2enmod actions
+Cambie el nombre del archivo de configuración FastCGI:
+sudo mv /etc/apache2/mods-enabled/fastcgi.conf /etc/apache2/mods-enabled/fastcgi.conf.default
+Cree un nuevo archivo de configuración:
+sudo nano /etc/apache2/mods-enabled/fastcgi.conf
+Añada las siguientes directivas al archivo para transmitir solicitudes de archivos .php al socket PHP-FPM UNIX:
+
+
+<IfModule mod_fastcgi.c>
+  AddHandler fastcgi-script .fcgi
+  FastCgiIpcDir /var/lib/apache2/fastcgi
+  AddType application/x-httpd-fastphp .php
+  Action application/x-httpd-fastphp /php-fcgi
+  Alias /php-fcgi /usr/lib/cgi-bin/php-fcgi
+  FastCgiExternalServer /usr/lib/cgi-bin/php-fcgi -socket /run/php/php7.2-fpm.sock -pass-header Authorization
+  <Directory /usr/lib/cgi-bin>
+    Require all granted
+  </Directory>
+</IfModule>
+Guarde los cambios y realice una prueba de configuración:
+sudo apachectl -t
+Vuelva a cargar Apache si aparece el mensaje Syntax OK:
+sudo systemctl reload apache2
+Si ve la advertencia Could not reliably determine the server's fully qualified domain name, using 127.0.1.1. Set the 'ServerName' directive globally to suppress this message., puede ignorarlo de forma segura por ahora. Configuraremos los nombres de servidor más adelante.
+
+Ahora, asegúrese de que podamos servir PHP desde Apache.
+
+Paso 4: verificación de la funcionalidad de PHP
+Vamos a asegurarnos de que PHP funcione al crear un archivo phpinfo() y acceder a él desde un navegador.
+
+Cree el archivo /var/www/html/info.php que contiene una llamada a la función phpinfo:
+echo "<?php phpinfo(); ?>" | sudo tee /var/www/html/info.php
+Para ver el archivo en un navegador, vaya a http://your_server_ip:8080/info.php. Esto le dará una lista de los ajustes de configuración que PHP está usando. Visualizará un resultado similar a esto:

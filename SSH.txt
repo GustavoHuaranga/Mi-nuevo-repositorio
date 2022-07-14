@@ -1,0 +1,51 @@
+Conexion SSH Linux
+
+En el servidor, abrir el archivo /etc/ssh/sshd_config con algún editor. Leer el archivo y configurar a gusto.
+En la consola de la máquina cliente abrir (ssh-keygen) para generar las llaves
+Elegir ubicación para guardar la llave privada
+Ejecutar:
+ssh-copy-id -i ~/.ssh/id_rsa.pub gustavo@192.168.222.133
+
+                                 -------------------------
+                                  la pc a la que te vas a conectar
+id.rsa clave privada
+id_rsa.pub clave publica
+
+gustavo@192.168.222.133 para conectarce
+
+para restringir el usuario Root 
+
+/etc/ssh/sshd_config
+
+PermitRootLogin no
+
+AllowUsers nombre_usuario para que puede iniciar solo ese usuario
+
+
+¿Cuál es la distribución más utilizada de Linux en servidores según w3techs?
+Ubuntu
+
+¿Cuáles proveedores de nube me permiten lanzar instancias de Ubuntu server y CentOS como base?
+
+¿Cuántos tipos de descargas puedo hacer desde la página de CentOS? ¿Cuáles son?
+
+dvd - minimal ISO
+
+Comando para listar los archivos en formato largo, por orden de modificación y en orden reverso:
+ls -l
+11.
+Como mínimo se requiere una partición para:
+
+
+
+.
+Sistema numérico utilizado para cambiar permisos de forma numérica en Linux:
+
+formato octal
+
+
+Al realizar la configuración de una base de datos, ¿cuál comando puedo utilizar para proporcionar seguridad básica en una base de datos MySQL o MariaDB?
+
+sudo mysql_secure_installation
+
+¿Cuál operador redirige la salida de pantalla a un archivo y lo concatena al final?
